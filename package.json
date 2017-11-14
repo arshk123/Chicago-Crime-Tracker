@@ -1,5 +1,5 @@
 {
-  "name": "uiucwp_fa17",
+  "name": "Postgrelites",
   "version": "1.0.0",
   "description": "",
   "main": "index.jsx",
@@ -8,7 +8,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server --content-base public/ --history-api-fallback"
   },
-  "author": "Simon Lu",
+  "author": "Arsh",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
