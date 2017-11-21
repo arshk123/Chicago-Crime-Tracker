@@ -1,32 +1,23 @@
-import React, {Component} from 'react'
-import { Button, List, Input } from 'semantic-ui-react'
-import {browserHistory} from 'react-router';
-import axios from 'axios';
-class NavButton extends Component {
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import SearchColumn from '../Search/SearchColumn.jsx'
+
+import styles from './PoliceHome.scss'
+
+class PoliceHome extends Component {
   constructor(props) {
     super(props)
-    this.search = this.search.bind(this)
-    this.state = {
-      query : ""
-    }
   }
-
-  search(event) {
-    // point to props
-    console.log("redirecting")
-    this.setState({
-      query : JSON.stringify(event.target.value)
-    })
-    // TODO set up search query to connect to webserver and display data
-  }
-
   render() {
     return (
-      <div className="Search">
-        <Input focus onChange={this.search}  placeholder='Search'/>
+    <div className="Home">
+      <div id="header">
+        <h1> Chicago Crime Finder </h1>
       </div>
-      )
+      <SearchColumn />
+    </div>
+  )
   }
-
 }
-export default NavButton
+
+export default PoliceHome;
