@@ -1,28 +1,48 @@
-var mysql = require('mysql');
-var app = require('express');
+var express = require('express');
+var pg = require("pg");
+var app = express();
+var router = express.Router()
+var bodyParser = require('body-parser');
+var secrets = require('./config/secrets');
+var path = require('path');
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "crime_stats"
-});
+const client = new pg.Client(secrets)
+client.connect();
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+client.query('Select count(*) from crimes', (err, res) => {
+	client.end()
+	console.log(res.rows);
+})
 
 
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end(JSON.stringify({
-        "message" : "aye",
-        "data"  : []
-  }))
-  //con.query("SELECT * FROM Crime", function (err, result, fields) {   
-    //if (err) throw err;
-    //res.end(JSON.stringify(result));
-  //});
-}).listen(8180, "172.22.94.193");
+//import routes (MP3)
+//setup routes (MP3)
+
+var route = require('./routes/index.js');
+var allowCrossDomain = function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+    next();
+};
+
+app.use(allowCrossDomain);
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(express.static(`${__dirname}/client/public`));
+
+app.use(bodyParser.json());
+
+require('./routes')(app, router);
+/*
+app.get('*', function (req, res) {
+	res.sendFile(path.resolve(__dirname, 'client/public/index.html'));
+})
+*/
+app.listen(8280, "0.0.0.0");
+
+
+
