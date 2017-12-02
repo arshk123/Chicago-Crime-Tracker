@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 // Include your new Components here
 import PoliceHome from './components/PoliceHome/PoliceHome.jsx'
+import Map from './components/Map/Map.jsx'
 
 // Include any new stylesheets here
 // Note that components' stylesheets should NOT be included here.
@@ -16,7 +17,7 @@ render(
   <Router history={browserHistory}>
     <Switch>
       <Route exact path="/" component={PoliceHome}/>
-
+      <Route exact path="/map" component={Map}/>
     </Switch>
   </Router>,
   document.getElementById('app')
