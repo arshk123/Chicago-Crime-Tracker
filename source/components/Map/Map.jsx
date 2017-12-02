@@ -8,7 +8,7 @@ class Map extends Component {
   render() {
     return (
       <div className="Home">
-        <h1> hey </h1>
+        <h1> hey there </h1>
       </div>
     )
   }
