@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # MP #2: New Clear REACTive App
 ### Due: October 9th, 2017, 11.59PM CDT
 
@@ -83,12 +82,3 @@ Other:
 
 ## Submission Details
 [Submission Form](https://docs.google.com/forms/d/e/1FAIpQLSfFhk_QzJJ1fRn4WV3_hdCwpnTWTyMKBRqFll_AsTHNqGQlMQ/viewform?usp=sf_link)
-=======
-# Chicago-Crime-Tracker
-This is my group's CS 411: Database systems final project for the fall semester of 2017
-
-Details:
-running Node.js webserver with react client on postgres database. 
-using pm2 behind an nginx reverse proxy server.
-
->>>>>>> 146f8b5df4641ca602cc813877a3fc7b74478585

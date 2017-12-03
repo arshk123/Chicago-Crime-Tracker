@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 .idea/
 .idea/*
@@ -5,3 +6,8 @@ node_modules
 node_modules/*
 public/
 public/*
+=======
+api/node_modules/*
+api/client/node_modules/*
+api/config/*
+>>>>>>> 146f8b5df4641ca602cc813877a3fc7b74478585
