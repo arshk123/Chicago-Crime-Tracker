@@ -18,7 +18,6 @@ class PoliceLogin extends Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
-// https://stackoverflow.com/questions/45598854/passing-props-through-react-router-v4-link
   loginPolice() {
     axios.post("http://fa17-cs411-10.cs.illinois.edu:8280/api/login/" + q,
     {

@@ -6,6 +6,8 @@ import axios from 'axios';
 import styles from './PoliceHome.scss'
 
 import CrimeCell from '../Search/DataCell/Cell.jsx'
+import Map from '../Map/Map.jsx'
+
 let fbicode = ""
 class PoliceHome extends Component {
   /***
@@ -100,7 +102,7 @@ class PoliceHome extends Component {
           <Button id="modal-popup"> Search Options </Button>
         </div>
         <div className="map">
-          Map Goes here
+          <Map />
         </div>
         <div className="DetailView">
           <List selection divided inverted relaxed id="movieList">
