@@ -102,7 +102,7 @@ class PoliceHome extends Component {
           <Button id="modal-popup"> Search Options </Button>
         </div>
         <div className="map">
-          <Map />
+          <Map data={this.state.results}/>
         </div>
         <div className="DetailView">
           <List selection divided inverted relaxed id="movieList">
