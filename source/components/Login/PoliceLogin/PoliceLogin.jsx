@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
+import PoliceHome from '../../PoliceHome/PoliceHome.jsx'
 
 class PoliceLogin extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class PoliceLogin extends Component {
     this.state = {
       name : "",
       password : "",
-      valid_login : false
+      valid_login : false,
+      fbi_code : ""
     }
 
     this.loginPolice = this.loginPolice.bind(this);
@@ -18,7 +20,7 @@ class PoliceLogin extends Component {
 
 // https://stackoverflow.com/questions/45598854/passing-props-through-react-router-v4-link
   loginPolice() {
-    axios.put("http://fa17-cs411-10.cs.illinois.edu:8280/api/login/" + q,
+    axios.post("http://fa17-cs411-10.cs.illinois.edu:8280/api/login/" + q,
     {
       "username" : this.state.username,
       "password" : this.state.password
@@ -39,10 +41,15 @@ class PoliceLogin extends Component {
 
   handlePasswordChange(event) {
     console.log(event.target.value)
-    this.setState({password : event.target.value});
+    this.setState({fbi_code : event.target.value});
   }
 
   render() {
+    if(this.state.fbi_code != "") {
+      return (
+        <PoliceHome fbi_code={this.state.fbi_code} />
+      )
+    }
     return (
       <div>
         <Form>
