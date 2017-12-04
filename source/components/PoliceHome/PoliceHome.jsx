@@ -7,6 +7,7 @@ import styles from './PoliceHome.scss'
 
 import CrimeCell from '../Search/DataCell/Cell.jsx'
 import Map from '../Map/Map.jsx'
+import CrimeDetailView from '../CrimeDetailView/CrimeDetailView.jsx'
 
 let fbicode = ""
 class PoliceHome extends Component {
