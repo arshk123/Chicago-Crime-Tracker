@@ -22,7 +22,6 @@ class CrimeDetailView extends Component {
     }
     this.handleOpen = this.handleOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    this.propogate = this.propogate.bind(this)
   }
 
   handleOpen() {
@@ -30,35 +29,24 @@ class CrimeDetailView extends Component {
   }
 
   handleClose() {
-    this.setState({ modalOpen: false }, ()=>this.props.clearCrimeSelection())
-    // this.props.imageLink = ""
-
+    this.setState({ modalOpen: false }, ()=>this.props.clearSelection())
   }
 
   render() {
-    console.log(JSON.stringify(this.props))
-    var img = ""
-    if(this.props.imageLink === "https://image.tmdb.org/t/p/w500/") {
-      img = <p>No image to show</p>
-    }
-    else {
-      img = <Image centered src={this.props.imageLink}/>
-    }
+    // console.log(JSON.stringify(this.props.mSelected))
     // https://stackoverflow.com/questions/33846682/react-onclick-function-fires-on-render
     if(this.props.mSelected) {
       return(
-        <Modal open={this.state.modalOpen} closeOnDocumentClick onClose={this.handleClose}>
-          <Header content={this.props.title} />
+        <Modal open={this.state.modalOpen} onClose={this.handleClose}>
+          <Header content={"Hey"} />
           <Modal.Content>
             <div id="detailView">
-              {img}
-              <h4> {"Rank: " + this.props.rank} </h4>
-              <h4> {"Number of Reviews: " + this.props.numVotes} </h4>
-              <h4> {"Genres: " + this.props.genre} </h4>
-              <h4> Description </h4>
-              <p> {this.props.description} </p>
+              This is a test popup. also please work.
             </div>
           </Modal.Content>
+          <Modal.Actions>
+            <Button secondary content='Close' onClick={this.handleClose} />
+          </Modal.Actions>
         </Modal>
       )
     }
@@ -69,15 +57,11 @@ class CrimeDetailView extends Component {
     }
   }
 }
-// https://reactjs.org/docs/typechecking-with-proptypes.html
+
 CrimeDetailView.propTypes = {
-  imageLink : PropTypes.string,
-  title : PropTypes.string,
-  numVotes : PropTypes.node,
   description : PropTypes.string,
-  genre : PropTypes.string,
   mSelected : PropTypes.bool,
-  clearMovieSelection : PropTypes.func
+  clearSelection : PropTypes.func
 }
 
 
