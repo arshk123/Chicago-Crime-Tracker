@@ -29,7 +29,9 @@ class MyMarker extends Component {
         onClick={this.toggle}>
         {
           this.state.isOpen && <InfoWindow onCloseClick={this.toggle}>
-          <div> {"hey"} </div>
+          <div> {"Location: " + this.props.data['block']}, {"ID: " + this.props.data['id']}, {"Crime Severity: "+ this.props.data['crime_index'].toFixed(2)}
+
+          </div>
           </InfoWindow>
         }
       </Marker>
