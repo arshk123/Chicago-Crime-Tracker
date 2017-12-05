@@ -12,7 +12,6 @@ import CrimeDetailView from '../CrimeDetailView/CrimeDetailView.jsx'
 let fbicode = ""
 class PoliceHome extends Component {
   /***
-  TODO Import Map
   TODO Implement Search
   TODO Implement FBI Update Crimes
   TODO Implement FBI Edit Crimes
@@ -25,9 +24,12 @@ class PoliceHome extends Component {
     this.search = this.search.bind(this)
     this.createListElement = this.createListElement.bind(this)
     this.selectedItem = this.selectedItem.bind(this)
+    this.clearSelection = this.clearSelection.bind(this)
     this.state = {
       search_query : "",
-      results : []
+      results : [],
+      selectedItem : false,
+      selectedID : -1
     }
     if(this.props.fbi_code) {
       fbicode = this.props.fbi_code
@@ -36,7 +38,22 @@ class PoliceHome extends Component {
   }
 
   selectedItem(id) {
+    console.log(id)
+    this.setState({
+      selectedItem : true,
+      selectedID : id
+    })
+    console.log("opening")
+  }
 
+  clearSelection() {
+    this.setState({
+      selectedItem : false,
+      selectedID : -1
+    }, () => {
+      console.log(this.state)
+    })
+    console.log("closing")
   }
 
   createListElement(data){
@@ -85,7 +102,7 @@ class PoliceHome extends Component {
 
   render() {
     var listObjects = (this.state.results).map(this.createListElement)
-    console.log(listObjects)
+    console.log(this.state.selectedItem)
     return (
     <div className="Home">
       <div className="navbar" id="nav">
@@ -111,6 +128,9 @@ class PoliceHome extends Component {
           </List>
         </div>
       </div>
+      <CrimeDetailView
+          mSelected={this.state.selectedItem}
+          clearSelection={this.clearSelection}/>
     </div>
   )
   }
