@@ -25,6 +25,7 @@ class PoliceHome extends Component {
     this.createListElement = this.createListElement.bind(this)
     this.selectedItem = this.selectedItem.bind(this)
     this.clearSelection = this.clearSelection.bind(this)
+    // case number, description, type, fbi code, time range, arrest made and district id
     this.state = {
       search_query : "",
       results : [],

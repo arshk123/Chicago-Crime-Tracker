@@ -21,7 +21,7 @@ class Item extends React.Component {
     }
     render() {
       const { item, i } = this.props;
-        
+
             if(this.state.hover == true)
             {
               return (
@@ -29,7 +29,7 @@ class Item extends React.Component {
                 <div id="child-element">{this.props.data}</div>
                 <img src = {logo2} width = "50px" height = "50px" />
               </div>
-              
+
               );
             }
             else
@@ -38,7 +38,7 @@ class Item extends React.Component {
               <div ><img src = {logo2} width = "50px" height = "50px" /></div>
               );
             }
-        
+
     }
 }
 
